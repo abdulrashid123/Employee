@@ -38,3 +38,7 @@ This project is a Django REST Framework-based backend system for generating, sto
    ```
    http://localhost:8000/charts/
    ```
+7. **Final:**:
+   ```
+   Enjoy API Endpoints
+   ```

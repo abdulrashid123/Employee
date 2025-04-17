@@ -25,7 +25,7 @@ dotenv.read_dotenv(os.path.join(os.path.dirname(os.path.dirname(__file__)), '.en
 # SECURITY WARNING: keep the secret key used in production secret!
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
 SECRET_KEY = os.getenv('SECRET_KEY')
-ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
+ALLOWED_HOSTS = ['*']
 
 
 
