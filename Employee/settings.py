@@ -125,3 +125,19 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# settings.py
+
+REST_FRAMEWORK = {
+    # — Apply to all views unless overridden —
+    'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle',
+    ],
+     # drop rates to small values for testing
+        'DEFAULT_THROTTLE_RATES': {
+            'anon': '10/minute',
+            'user': '100/minute',
+        },
+}
