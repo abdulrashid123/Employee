@@ -34,6 +34,7 @@ class AttendanceModelTest(TestCase):
             date=timezone.now(),
             status="Present"
         )
+
         self.assertEqual(attendance.employee.first_name, "John")
         self.assertEqual(attendance.status, "Present")
 
