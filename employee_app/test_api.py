@@ -38,6 +38,7 @@ class EmployeeAPITestCase(APITestCase):
             "last_name": "Smith",
             "email": "alice@example.com",
             "department": self.department.id,
+            "department_id":self.department.id,
             "joining_date": date.today(),
             "salary": 60000,
             "position": "Recruiter"
