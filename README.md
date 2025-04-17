@@ -15,12 +15,22 @@ This project is a Django REST Framework-based backend system for generating, sto
 3. **Create a .env file using .env.example:**:
    ```
    cp .env.example .env
+   Update your .env with the PostgreSQL connection string.
    ```
 4. **Run migrations:**:
    ```
-   Update your .env with the PostgreSQL connection string.
+   python manage.py migrate
+   ```
+   
+5. **Run Tests:**:
+   ```
+   python manage.py test
    ```
 5. **Run the development server:**:
    ```
    python manage.py runserver
+   ```
+6. **Endpoint API Docs:**:
+   ```
+   http://localhost:8000/swagger/
    ```
