@@ -8,7 +8,10 @@ from employee_app.serializers import (
 )
 from django.db import transaction
 
+from django.shortcuts import render
 
+def chart_view(request):
+    return render(request, 'charts.html')
 # Department
 class DepartmentListCreateView(generics.ListCreateAPIView):
     queryset = Department.objects.all()

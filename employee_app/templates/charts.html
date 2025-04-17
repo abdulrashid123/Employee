@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Employee Performance Progress</title>
+  <style>
+    .employee-card {
+      margin: 20px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .progress-bar-container {
+      width: 100%;
+      background-color: #f3f3f3;
+      margin-bottom: 10px;
+    }
+    .progress-bar {
+      height: 20px;
+      background-color: #4caf50;
+      color: white;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h2>Employee Performance Over Time</h2>
+  <div id="progressBars"></div>
+
+  <script>
+    fetch('/api/performance/')
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById('progressBars');
+
+        // Group data by employee
+        const employees = [...new Set(data.map(item => item.employee_name))];
+
+        employees.forEach(emp => {
+          const empData = data.filter(item => item.employee_name === emp);
+
+          // Create a card for each employee
+          const employeeCard = document.createElement('div');
+          employeeCard.classList.add('employee-card');
+          employeeCard.innerHTML = `<h3>${emp}</h3>`;
+
+          // Create progress bars for each month
+          empData.forEach(item => {
+            const progressContainer = document.createElement('div');
+            progressContainer.classList.add('progress-bar-container');
+
+            const progress = ((item.rating / 5) * 100).toFixed(1);  // Round to 1 decimal place
+            const progressBar = document.createElement('div');
+            progressBar.classList.add('progress-bar');
+            progressBar.style.width = `${progress}%`;
+            progressBar.innerHTML = `Month: ${item.month.slice(0, 7)} | Rating: ${item.rating.toFixed(1)}`;
+
+            progressContainer.appendChild(progressBar);
+            employeeCard.appendChild(progressContainer);
+          });
+
+          container.appendChild(employeeCard);
+        });
+      })
+      .catch(error => console.error('Error fetching performance data:', error));
+  </script>
+</body>
+</html>

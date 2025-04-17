@@ -5,7 +5,8 @@ from employee_app.views import (
     EmployeeRetrieveUpdateView,
     AttendanceListCreateView,
     PerformanceListCreateView,
-AttendanceRetrieveUpdateView
+    AttendanceRetrieveUpdateView,
+
 )
 
 urlpatterns = [
@@ -15,4 +16,5 @@ urlpatterns = [
     path('attendance/', AttendanceListCreateView.as_view(), name='attendance-list'),
     path('attendance/<int:pk>/', AttendanceRetrieveUpdateView.as_view(), name='attendance-detail'),
     path('performance/', PerformanceListCreateView.as_view(), name='performance-list'),
+
 ]

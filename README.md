@@ -34,3 +34,7 @@ This project is a Django REST Framework-based backend system for generating, sto
    ```
    http://localhost:8000/swagger/
    ```
+7. **Endpoint For Chart of Employee Performance:**:
+   ```
+   http://localhost:8000/charts/
+   ```
